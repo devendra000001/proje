@@ -29,3 +29,24 @@
 .focus-ring {
   @apply focus:outline-none focus:ring-2 focus:ring-[#D84315] focus:ring-offset-1;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  button:not(:disabled),
+  a[href] {
+    transition-property: transform, color, background-color, border-color, box-shadow;
+    transition-duration: 120ms;
+    transition-timing-function: ease-out;
+  }
+
+  button:not(:disabled):active,
+  a[href]:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button,
+  a[href] {
+    transition-duration: 0ms;
+  }
+}
