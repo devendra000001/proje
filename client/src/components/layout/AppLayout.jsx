@@ -13,10 +13,10 @@ export const AppLayout = () => {
       <div className="relative isolate min-h-screen bg-[#FAF9F6]">
         <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
           <div
-            className="absolute -inset-2 bg-cover bg-center bg-no-repeat opacity-[0.3] blur-[2px]"
+            className="absolute -inset-2 bg-cover bg-center bg-no-repeat opacity-[0.45] blur-[2px]"
             style={{ backgroundImage: "url('/assets/path.webp')" }}
           />
-          <div className="absolute inset-0 bg-[#FAF9F6]/75" />
+          <div className="absolute inset-0 bg-[#FAF9F6]/60" />
         </div>
 
         <div className="relative z-10 flex min-h-screen flex-col antialiased md:flex-row">
