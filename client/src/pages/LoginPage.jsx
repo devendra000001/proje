@@ -54,6 +54,12 @@ export const LoginPage = () => {
         </div>
       </div>
 
+      <img
+        src="/assets/path.webp"
+        alt="RSS shakha march"
+        className="mb-7 aspect-video w-full max-w-4xl rounded-lg border border-stone-200 object-cover shadow-sm"
+      />
+
       <div className="w-full max-w-md">
         <div className="rounded-lg border border-stone-200 bg-white px-6 py-8 shadow-sm sm:px-10">
           <form className="space-y-5" onSubmit={handleSubmit}>
