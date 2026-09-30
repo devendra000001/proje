@@ -5,6 +5,7 @@ import Button from '../common/Button';
 import Select from '../common/Select';
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext';
+import { toApiTimeValue, toTimeInputValue } from './timeUtils';
 
 const dateInput = (value) => {
   const date = new Date(value);
@@ -31,8 +32,8 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
       setFormData({
         name: event.name || '',
         date: event.date ? dateInput(event.date) : '',
-        startTime: event.startTime || '',
-        endTime: event.endTime || '',
+        startTime: toTimeInputValue(event.startTime || ''),
+        endTime: toTimeInputValue(event.endTime || ''),
         venue: event.venue || '',
         description: event.description || '',
         status: event.status || 'upcoming',
@@ -49,6 +50,10 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
     e.preventDefault();
     if (!event) return;
     setErrorMsg('');
+    if (formData.startTime >= formData.endTime) {
+      setErrorMsg('End Time must be later than Start Time.');
+      return;
+    }
     setIsLoading(true);
 
     try {
@@ -56,7 +61,12 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
         setErrorMsg('Enter a valid event date.');
         return;
       }
-      const res = await api.put(`/events/${event._id}`, formData);
+      const payload = {
+        ...formData,
+        startTime: toApiTimeValue(formData.startTime),
+        endTime: toApiTimeValue(formData.endTime),
+      };
+      const res = await api.put(`/events/${event._id}`, payload);
 
       if (res.data.success) {
         addToast('Event details updated successfully!', 'success');
@@ -101,8 +111,8 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
           <Input
             label="Start Time"
             name="startTime"
+            type="time"
             required
-            pattern="^(0?[1-9]|1[0-2]):[0-5][0-9]\\s?(AM|PM)$"
             value={formData.startTime}
             onChange={handleChange}
           />
@@ -110,8 +120,8 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
           <Input
             label="End Time"
             name="endTime"
+            type="time"
             required
-            pattern="^(0?[1-9]|1[0-2]):[0-5][0-9]\\s?(AM|PM)$"
             value={formData.endTime}
             onChange={handleChange}
           />

@@ -5,6 +5,7 @@ import Button from '../common/Button';
 import { Calendar, Clock, MapPin, FileText } from 'lucide-react';
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext';
+import { toApiTimeValue } from './timeUtils';
 
 const localDateInput = () => {
   const date = new Date();
@@ -16,8 +17,8 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
   const [formData, setFormData] = useState({
     name: '',
     date: localDateInput(),
-    startTime: '07:00 AM',
-    endTime: '08:00 AM',
+    startTime: '07:00',
+    endTime: '08:00',
     venue: 'VNIT Ground / Sports Complex',
     description: '',
   });
@@ -33,10 +34,19 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+    if (formData.startTime >= formData.endTime) {
+      setErrorMsg('End Time must be later than Start Time.');
+      return;
+    }
     setIsLoading(true);
 
     try {
-      const res = await api.post('/events', formData);
+      const payload = {
+        ...formData,
+        startTime: toApiTimeValue(formData.startTime),
+        endTime: toApiTimeValue(formData.endTime),
+      };
+      const res = await api.post('/events', payload);
 
       if (res.data.success) {
         addToast('New Shakha event scheduled successfully!', 'success');
@@ -45,8 +55,8 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
         setFormData({
           name: '',
           date: localDateInput(),
-          startTime: '07:00 AM',
-          endTime: '08:00 AM',
+          startTime: '07:00',
+          endTime: '08:00',
           venue: 'VNIT Ground / Sports Complex',
           description: '',
         });
@@ -91,9 +101,8 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
           <Input
             label="Start Time"
             name="startTime"
+            type="time"
             required
-            pattern="^(0?[1-9]|1[0-2]):[0-5][0-9]\\s?(AM|PM)$"
-            placeholder="07:00 AM"
             value={formData.startTime}
             onChange={handleChange}
           />
@@ -101,9 +110,8 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
           <Input
             label="End Time"
             name="endTime"
+            type="time"
             required
-            pattern="^(0?[1-9]|1[0-2]):[0-5][0-9]\\s?(AM|PM)$"
-            placeholder="08:00 AM"
             value={formData.endTime}
             onChange={handleChange}
           />
