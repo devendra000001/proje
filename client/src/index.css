@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FAF9F6;
+    color: #292524;
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+  }
+}
+
+/* Custom scrollbars & focus rings */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c2410c;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9a3412;
+}
+
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-[#D84315] focus:ring-offset-1;
+}
