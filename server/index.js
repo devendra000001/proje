@@ -8,14 +8,7 @@ dotenv.config();
 
 const app = express();
 
-// Body parser & CORS
-app.use(express.json({ limit: '1mb' }));
-app.use((req, res, next) => {
-  if (['POST', 'PUT', 'PATCH'].includes(req.method) && (!req.body || typeof req.body !== 'object' || Array.isArray(req.body))) {
-    return res.status(400).json({ success: false, message: 'Request body must be a JSON object' });
-  }
-  next();
-});
+// CORS
 const configuredOrigins = (process.env.FRONTEND_ORIGIN || '').split(',').map((origin) => origin.trim()).filter(Boolean);
 const normalizedOrigins = [];
 const invalidOrigins = [];
@@ -27,8 +20,8 @@ for (const origin of configuredOrigins) {
   } catch { invalidOrigins.push(origin); }
 }
 const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? [...new Set(normalizedOrigins)]
-  : [...new Set([...normalizedOrigins, 'http://localhost:3000', 'http://localhost:3001'])];
+  ? [...new Set([...normalizedOrigins, 'http://localhost:3000', 'https://proje-dusky-two.vercel.app'])]
+  : [...new Set([...normalizedOrigins, 'http://localhost:3000', 'http://localhost:3001', 'https://proje-dusky-two.vercel.app'])];
 app.use(cors({
   origin(origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
@@ -36,6 +29,15 @@ app.use(cors({
   },
   credentials: true,
 }));
+
+// Body parser & request validation
+app.use(express.json({ limit: '1mb' }));
+app.use((req, res, next) => {
+  if (['POST', 'PUT', 'PATCH'].includes(req.method) && (!req.body || typeof req.body !== 'object' || Array.isArray(req.body))) {
+    return res.status(400).json({ success: false, message: 'Request body must be a JSON object' });
+  }
+  next();
+});
 
 // Route mounts
 app.use('/api/auth', require('./routes/authRoutes'));
