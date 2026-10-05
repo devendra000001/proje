@@ -10,15 +10,7 @@ export const AppLayout = () => {
   const { sessionError, checkAuth } = useAuth();
 
   return (
-      <div className="relative isolate min-h-screen bg-[#FAF9F6]">
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-          <div
-            className="absolute -inset-2 bg-cover bg-center bg-no-repeat opacity-[0.7] blur-[1px]"
-            style={{ backgroundImage: "url('/assets/path.webp')" }}
-          />
-          <div className="absolute inset-0 bg-[#FAF9F6]/45" />
-        </div>
-
+      <div className="relative isolate min-h-screen bg-slate-50">
         <div className="relative z-10 flex min-h-screen flex-col antialiased md:flex-row">
         {/* Navigation Sidebar */}
         <Sidebar
@@ -32,7 +24,7 @@ export const AppLayout = () => {
 
           <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto bg-white/35 backdrop-blur-[2px]">
             {sessionError && (
-              <div role="status" className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              <div role="status" className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-100 px-4 py-3 text-sm text-slate-800">
                 <span>{sessionError}</span>
                 <Button variant="secondary" size="sm" onClick={checkAuth}>Retry session check</Button>
               </div>
@@ -42,7 +34,7 @@ export const AppLayout = () => {
 
           {/* Footer */}
           <footer className="border-t border-stone-200 bg-white px-6 py-4 text-center text-xs text-stone-500">
-            <span>RSS VNIT Shakha Portal • Internal Member Portal</span>
+            <span>Campus Management Portal</span>
           </footer>
         </div>
         </div>

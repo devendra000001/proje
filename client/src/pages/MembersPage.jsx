@@ -116,10 +116,10 @@ export const MembersPage = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
         <div>
           <h2 className="text-xl font-bold text-stone-900 font-serif">
-            Swayamsevak Directory
+            Member Directory
           </h2>
           <p className="text-xs text-stone-600 mt-0.5">
-            Internal directory of RSS VNIT Shakha members, branches, skills, and interests.
+            Directory of campus members, departments, skills, and interests.
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export const MembersPage = () => {
             icon={Plus}
             onClick={() => setIsAddModalOpen(true)}
           >
-            Register Swayamsevak
+            Register Member
           </Button>
         )}
       </div>
@@ -140,18 +140,18 @@ export const MembersPage = () => {
           onClick={() => { setPage(1); setActiveTab('active'); }}
           className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${
             activeTab === 'active'
-              ? 'border-[#D84315] text-[#D84315]'
+              ? 'border-[#475569] text-slate-700'
               : 'border-transparent text-stone-500 hover:text-stone-800'
           }`}
         >
-          Active Swayamsevaks
+          Active Members
         </button>
         {isAdmin && (
           <button
           onClick={() => { setPage(1); setActiveTab('inactive'); }}
             className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${
               activeTab === 'inactive'
-                ? 'border-[#D84315] text-[#D84315]'
+                ? 'border-[#475569] text-slate-700'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
             }`}
           >
@@ -195,7 +195,7 @@ export const MembersPage = () => {
         <ErrorState message={error} onRetry={fetchMembers} />
       ) : members.length === 0 ? (
         <EmptyState
-          title="No Swayamsevaks found"
+          title="No Members found"
           description="No members match your current search and filter criteria."
           icon={UserX}
           actionLabel={isAdmin ? 'Add New Member' : undefined}
@@ -222,7 +222,7 @@ export const MembersPage = () => {
                         {m.fullName}
                       </h3>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1">
-                        <Badge variant="kesari" size="xs">
+                        <Badge variant="neutral" size="xs">
                           {m.branch}
                         </Badge>
                         <span className="text-xs text-stone-500 font-medium">
@@ -275,7 +275,7 @@ export const MembersPage = () => {
                       {m.interests.slice(0, 3).map((tag, idx) => (
                         <span
                           key={idx}
-                          className="bg-orange-50 text-[#D84315] text-[10px] font-semibold px-2 py-0.5 rounded border border-orange-100"
+                          className="bg-slate-100 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-slate-200"
                         >
                           {tag}
                         </span>
@@ -289,7 +289,7 @@ export const MembersPage = () => {
                 <span>Joined {m.joiningYear}</span>
                 <Link
                   to={`/members/${m._id}`}
-                  className="font-semibold text-[#D84315] hover:underline"
+                  className="font-semibold text-slate-700 hover:underline"
                 >
                   View Profile & Record →
                 </Link>

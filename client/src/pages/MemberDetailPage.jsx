@@ -68,7 +68,7 @@ export const MemberDetailPage = () => {
     fetchMemberData();
   }, [id, attendancePage]);
 
-  if (isLoading) return <Loader text="Fetching Swayamsevak Profile & History..." />;
+  if (isLoading) return <Loader text="Fetching Member Profile & History..." />;
   if (error) return <ErrorState message={error} onRetry={fetchMemberData} />;
 
   const isOwner = user?.memberProfile?._id === id;
@@ -81,9 +81,9 @@ export const MemberDetailPage = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
           <Link
         to="/members"
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D84315] hover:underline"
+        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:underline"
       >
-        <ArrowLeft className="w-4 h-4" /> Back to Swayamsevak Directory
+        <ArrowLeft className="w-4 h-4" /> Back to Member Directory
       </Link>
 
       {/* Main Profile Card */}
@@ -94,14 +94,14 @@ export const MemberDetailPage = () => {
               src={member?.profilePhotoUrl || 'https://avatar.iran.liara.run/public'}
               onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/avatar-default.svg'; }}
               alt={member?.fullName}
-              className="w-20 h-20 rounded-full border-2 border-[#D84315] object-cover shrink-0"
+              className="w-20 h-20 rounded-full border-2 border-[#475569] object-cover shrink-0"
             />
             <div>
               <h2 className="text-2xl font-bold text-stone-900 font-serif">
                 {member?.fullName}
               </h2>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-2">
-                <Badge variant="kesari">{member?.branch}</Badge>
+                <Badge variant="neutral">{member?.branch}</Badge>
                 <Badge variant="neutral">{member?.academicYear}</Badge>
                 <Badge variant={member?.status === 'active' ? 'active' : 'inactive'}>
                   {member?.status?.toUpperCase()}
@@ -128,7 +128,7 @@ export const MemberDetailPage = () => {
             <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
               Attendance Rate
             </span>
-            <div className="text-2xl font-bold text-[#D84315] mt-1">
+            <div className="text-2xl font-bold text-slate-700 mt-1">
               {summary ? `${summary.attendancePercentage}%` : '—'}
             </div>
           </div>
@@ -162,7 +162,7 @@ export const MemberDetailPage = () => {
                   member.interests.map((item, idx) => (
                     <span
                       key={idx}
-                      className="bg-orange-50 text-[#D84315] text-xs font-medium px-2.5 py-1 rounded border border-orange-100"
+                      className="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-1 rounded border border-slate-200"
                     >
                       {item}
                     </span>
@@ -196,9 +196,9 @@ export const MemberDetailPage = () => {
 
           <div className="bg-stone-50 p-4 rounded-lg border border-stone-200 text-xs space-y-3">
             <div className="font-bold text-stone-800 border-b border-stone-200 pb-1.5 flex items-center justify-between">
-              <span>Shakha Record Details</span>
+              <span>Campus Record Details</span>
               {!canEdit && (
-                <span className="flex items-center gap-1 text-[10px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                <span className="flex items-center gap-1 text-[10px] text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                   <Lock className="w-3 h-3" /> Contact Masked (Privacy Protected)
                 </span>
               )}
@@ -232,7 +232,7 @@ export const MemberDetailPage = () => {
         {/* Event Attendance History Timeline */}
         <div className="pt-4 border-t border-stone-200 space-y-3">
           <h3 className="text-base font-bold text-stone-900 font-serif flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-[#D84315]" />
+            <Calendar className="w-5 h-5 text-slate-700" />
             Personal Event Attendance Record
           </h3>
 
@@ -240,7 +240,7 @@ export const MemberDetailPage = () => {
             <p className="text-sm text-stone-500">{attendanceError}</p>
           ) : records.length === 0 ? (
             <div className="bg-stone-50 border border-stone-200 rounded p-6 text-center text-xs text-stone-500">
-              No recorded event attendance history for this Swayamsevak yet.
+              No recorded event attendance history for this Member yet.
             </div>
           ) : (
             <div className="space-y-2">
@@ -257,7 +257,7 @@ export const MemberDetailPage = () => {
                     )}
                     <div>
                       <div className="font-bold text-stone-900">
-                        {rec.event?.name || 'Shakha Event'}
+                        {rec.event?.name || 'Campus Event'}
                       </div>
                       <div className="text-[11px] text-stone-500">
                         {new Date(rec.event?.date).toLocaleDateString('en-IN', {

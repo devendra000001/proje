@@ -87,7 +87,7 @@ export const EditMemberModal = ({ isOpen, onClose, member, onMemberUpdated }) =>
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Edit Swayamsevak Profile" maxWidth="max-w-2xl">
+    <Modal isOpen={isOpen} onClose={onClose} title="Edit Member Profile" maxWidth="max-w-2xl">
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMsg && (
           <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded text-xs font-medium">

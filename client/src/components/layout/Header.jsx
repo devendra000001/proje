@@ -18,7 +18,7 @@ export const Header = ({ onMobileMenuToggle }) => {
       <div className="flex items-center gap-3">
         <button
           onClick={onMobileMenuToggle}
-          className="md:hidden text-stone-600 hover:text-stone-900 p-2 rounded-md hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-[#D84315]"
+          className="md:hidden text-stone-600 hover:text-stone-900 p-2 rounded-md hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-slate-500"
           aria-label="Open Mobile Menu"
         >
           <Menu className="w-5 h-5" />
@@ -26,10 +26,10 @@ export const Header = ({ onMobileMenuToggle }) => {
 
         <div className="flex min-w-0 flex-col">
           <h1 className="truncate font-serif text-sm font-semibold tracking-tight text-stone-900 sm:text-base">
-            RSS VNIT <span className="text-[#B64A20]">Shakha Portal</span>
+            Campus Management Portal
           </h1>
           <span className="hidden text-[11px] text-stone-500 sm:inline">
-            VNIT Nagpur Campus · {currentDate}
+            Campus member services · {currentDate}
           </span>
         </div>
       </div>
@@ -38,14 +38,14 @@ export const Header = ({ onMobileMenuToggle }) => {
       <div className="flex items-center gap-3">
         <div className="hidden sm:flex flex-col items-end text-right">
           <span className="text-xs font-semibold text-stone-800">
-            Namaste, {user?.memberProfile?.fullName?.split(' ')[0] || 'Swayamsevak'} Ji
+            Welcome, {user?.memberProfile?.fullName?.split(' ')[0] || 'Member'}
           </span>
-          <Badge variant={user?.role === 'admin' ? 'admin' : 'kesari'} size="xs">
-            {user?.role === 'admin' ? 'Shakha Adhikari (Admin)' : 'Swayamsevak'}
+          <Badge variant={user?.role === 'admin' ? 'admin' : 'neutral'} size="xs">
+            {user?.role === 'admin' ? 'Administrator' : 'Member'}
           </Badge>
         </div>
 
-        <div className="w-8 h-8 rounded-full bg-orange-100 border border-orange-200 flex items-center justify-center text-[#D84315] font-semibold text-xs shrink-0">
+        <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-200 flex items-center justify-center text-slate-700 font-semibold text-xs shrink-0">
           {user?.memberProfile?.fullName ? user.memberProfile.fullName.charAt(0).toUpperCase() : 'S'}
         </div>
       </div>

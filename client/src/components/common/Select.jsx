@@ -24,7 +24,7 @@ export const Select = ({
         required={required}
         aria-invalid={error ? 'true' : undefined}
         aria-describedby={error ? `${selectId}-error` : undefined}
-        className={`w-full text-sm bg-white border rounded-md px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#D84315] ${
+        className={`w-full text-sm bg-white border rounded-md px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500 ${
           error ? 'border-rose-400 focus:ring-rose-500' : 'border-stone-300'
         }`}
         {...props}

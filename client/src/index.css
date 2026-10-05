@@ -4,8 +4,8 @@
 
 @layer base {
   body {
-    background-color: #FAF9F6;
-    color: #292524;
+    background-color: #f8fafc;
+    color: #1e293b;
     font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
   }
 }
@@ -19,15 +19,15 @@
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c2410c;
+  background: #64748b;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9a3412;
+  background: #475569;
 }
 
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-[#D84315] focus:ring-offset-1;
+  @apply focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-1;
 }
 
 @media (hover: none) and (pointer: coarse) {

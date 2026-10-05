@@ -47,7 +47,7 @@ const AttendancePage = () => {
     <div className="mx-auto max-w-5xl space-y-6">
       <header className="border-b border-stone-200 pb-4">
         <h2 className="text-xl font-bold text-stone-900 font-serif">My Attendance</h2>
-        <p className="mt-1 text-sm text-stone-600">Your attendance history across recorded Shakha events.</p>
+        <p className="mt-1 text-sm text-stone-600">Your attendance history across recorded Campus events.</p>
       </header>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Metric label="Attendance rate" value={`${summary.attendancePercentage}%`} />

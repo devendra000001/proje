@@ -19,7 +19,7 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
     date: localDateInput(),
     startTime: '07:00',
     endTime: '08:00',
-    venue: 'VNIT Ground / Sports Complex',
+    venue: 'Campus Ground / Sports Complex',
     description: '',
   });
 
@@ -49,7 +49,7 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
       const res = await api.post('/events', payload);
 
       if (res.data.success) {
-        addToast('New Shakha event scheduled successfully!', 'success');
+        addToast('New Campus event scheduled successfully!', 'success');
         onEventAdded && onEventAdded(res.data.event);
         onClose();
         setFormData({
@@ -57,20 +57,20 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
           date: localDateInput(),
           startTime: '07:00',
           endTime: '08:00',
-          venue: 'VNIT Ground / Sports Complex',
+          venue: 'Campus Ground / Sports Complex',
           description: '',
         });
       }
     } catch (err) {
       console.error('[Add Event Error]', err);
-      setErrorMsg(err.response?.data?.message || 'Failed to schedule Shakha event.');
+      setErrorMsg(err.response?.data?.message || 'Failed to schedule Campus event.');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Schedule New Shakha Event" maxWidth="max-w-xl">
+    <Modal isOpen={isOpen} onClose={onClose} title="Schedule New Campus Event" maxWidth="max-w-xl">
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMsg && (
           <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded text-xs font-medium">
@@ -82,7 +82,7 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
           label="Event Name"
           name="name"
           required
-          placeholder="e.g. Regular Morning Shakha / Vijayadashami Utsav"
+          placeholder="e.g. Student orientation / Club meeting"
           value={formData.name}
           onChange={handleChange}
         />
@@ -121,7 +121,7 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
           label="Venue"
           name="venue"
           required
-          placeholder="VNIT Ground / Sports Complex / Open Lawn"
+          placeholder="Campus Ground / Sports Complex / Open Lawn"
           value={formData.venue}
           onChange={handleChange}
         />
@@ -134,8 +134,8 @@ export const AddEventModal = ({ isOpen, onClose, onEventAdded }) => {
             name="description"
             rows="3"
             maxLength={5000}
-            className="w-full text-sm bg-white border border-stone-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#D84315]"
-            placeholder="Enter event agenda, activities, or instructions for Swayamsevaks..."
+            className="w-full text-sm bg-white border border-stone-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-slate-500"
+            placeholder="Enter event agenda, activities, or instructions for Members..."
             value={formData.description}
             onChange={handleChange}
           />

@@ -54,14 +54,14 @@ export const ProfilePage = () => {
               src={profile?.profilePhotoUrl || 'https://avatar.iran.liara.run/public'}
               onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/avatar-default.svg'; }}
               alt={profile?.fullName || user?.name || user?.username}
-              className="w-16 h-16 rounded-full border-2 border-[#D84315] object-cover shrink-0"
+              className="w-16 h-16 rounded-full border-2 border-[#475569] object-cover shrink-0"
             />
             <div>
               <h2 className="text-xl font-bold text-stone-900 font-serif">
                 {profile?.fullName || user?.name || user?.username}
               </h2>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-1">
-                <Badge variant="kesari">{profile?.branch || 'VNIT'}</Badge>
+                <Badge variant="neutral">{profile?.branch || 'Campus'}</Badge>
                 <Badge variant="neutral">{profile?.academicYear || 'Member'}</Badge>
                 <Badge variant={user?.role === 'admin' ? 'admin' : 'member'}>
                   {user?.role?.toUpperCase()}
@@ -122,7 +122,7 @@ export const ProfilePage = () => {
                 {profile?.interests?.map((item, idx) => (
                   <span
                     key={idx}
-                    className="bg-orange-50 text-[#D84315] text-xs font-medium px-2.5 py-0.5 rounded border border-orange-100"
+                    className="bg-slate-100 text-slate-700 text-xs font-medium px-2.5 py-0.5 rounded border border-slate-200"
                   >
                     {item}
                   </span>

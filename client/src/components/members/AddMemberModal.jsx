@@ -58,7 +58,7 @@ export const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
       const res = await api.post('/members', payload);
 
       if (res.data.success) {
-        addToast('New Swayamsevak member profile registered successfully!', 'success');
+        addToast('New Member member profile registered successfully!', 'success');
         onMemberAdded && onMemberAdded(res.data.member);
         onClose();
         // Reset form
@@ -87,7 +87,7 @@ export const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Register New Swayamsevak Member" maxWidth="max-w-2xl">
+    <Modal isOpen={isOpen} onClose={onClose} title="Register New Member Member" maxWidth="max-w-2xl">
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMsg && (
           <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded text-xs font-medium">
@@ -134,8 +134,8 @@ export const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
             label="Access Role"
             name="role"
             options={[
-              { value: 'member', label: 'Swayamsevak (Member)' },
-              { value: 'admin', label: 'Shakha Adhikari (Admin)' },
+              { value: 'member', label: 'Member (Member)' },
+              { value: 'admin', label: 'Administrator' },
             ]}
             value={formData.role}
             onChange={handleChange}
@@ -221,7 +221,7 @@ export const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
           <Input
             label="Admin Internal Remarks (Protected)"
             name="additionalRemarks"
-            placeholder="Internal shakha notes visible only to admins..."
+            placeholder="Internal campus notes visible only to admins..."
             value={formData.additionalRemarks}
             onChange={handleChange}
           />
@@ -232,7 +232,7 @@ export const AddMemberModal = ({ isOpen, onClose, onMemberAdded }) => {
             Cancel
           </Button>
           <Button type="submit" variant="primary" isLoading={isLoading}>
-            Register Swayamsevak
+            Register Member
           </Button>
         </div>
       </form>

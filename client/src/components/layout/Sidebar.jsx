@@ -11,7 +11,7 @@ import {
   X,
   LogOut,
 } from 'lucide-react';
-import RSSLogo from '../common/RSSLogo';
+import CampusBrand from '../common/CampusBrand';
 import { useAuth } from '../../context/AuthContext';
 
 const NAV_ITEMS = [
@@ -27,15 +27,15 @@ const NAV_ITEMS = [
 export const Sidebar = ({ isOpen, onClose }) => {
   const { user, logout } = useAuth();
 
-  const activeClass = 'bg-[#D84315] text-white shadow-sm';
-  const inactiveClass = 'text-stone-700 hover:bg-orange-50/80 hover:text-[#D84315]';
+  const activeClass = 'bg-slate-700 text-white shadow-sm';
+  const inactiveClass = 'text-stone-700 hover:bg-slate-100 hover:text-slate-700';
 
   const navContent = (
     <div className="flex flex-col h-full bg-white border-r border-stone-200 w-64 select-none">
       {/* Brand Header */}
-      <div className="border-b border-stone-200 bg-[#FCFAF7] px-5 py-5">
+      <div className="border-b border-stone-200 bg-[#f8fafc] px-5 py-5">
         <div className="flex items-center justify-between gap-2">
-          <RSSLogo className="h-12 w-12" textClassName="text-base font-bold text-stone-900" />
+          <CampusBrand className="h-12 w-12" textClassName="text-base font-bold text-stone-900" />
         {onClose && (
           <button
             onClick={onClose}
@@ -46,8 +46,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
         )}
         </div>
         <div className="mt-4 flex items-center gap-2.5 border-t border-stone-200/80 pt-3">
-          <img src="/assets/vnit-logo.png" alt="Visvesvaraya National Institute of Technology, Nagpur" className="h-9 w-8 shrink-0 object-contain" />
-          <span className="text-[10px] font-medium leading-snug text-stone-500">VNIT Nagpur<br />Campus Shakha</span>
+          <span className="text-[10px] font-medium leading-snug text-stone-500">Campus member services</span>
         </div>
       </div>
 
@@ -87,7 +86,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
               <span className="text-xs font-bold text-stone-900 truncate">
                 {user?.memberProfile?.fullName || user?.name || user?.username}
               </span>
-              <span className="text-[10px] font-semibold text-[#D84315] uppercase tracking-wider">
+              <span className="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">
                 {user?.role || 'Member'}
               </span>
             </div>

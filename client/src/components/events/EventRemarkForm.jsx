@@ -37,7 +37,7 @@ const EventRemarkForm = ({ eventId, remark, onSaved }) => {
   };
 
   return (
-    <form onSubmit={save} className="space-y-3 rounded-lg border border-orange-200 bg-orange-50/50 p-4">
+    <form onSubmit={save} className="space-y-3 rounded-lg border border-slate-200 bg-slate-100/50 p-4">
       <h4 className="text-sm font-bold text-stone-900">{remark ? 'Edit event report' : 'Write event report'}</h4>
       {error && <p role="alert" className="rounded border border-rose-200 bg-rose-50 p-3 text-xs text-rose-800">{error}</p>}
       {[
@@ -48,7 +48,7 @@ const EventRemarkForm = ({ eventId, remark, onSaved }) => {
       ].map(([name, label, required]) => (
         <div key={name} className="space-y-1">
           <label htmlFor={`report-${name}`} className="text-xs font-semibold text-stone-700">{label}{required ? ' *' : ''}</label>
-          <textarea id={`report-${name}`} name={name} required={required} maxLength={5000} rows={name === 'overallRemark' ? 3 : 2} value={form[name]} onChange={change} className="w-full rounded-md border border-stone-300 bg-white p-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#D84315]" />
+          <textarea id={`report-${name}`} name={name} required={required} maxLength={5000} rows={name === 'overallRemark' ? 3 : 2} value={form[name]} onChange={change} className="w-full rounded-md border border-stone-300 bg-white p-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-500" />
         </div>
       ))}
       <div className="flex justify-end"><Button type="submit" isLoading={saving}>Save report</Button></div>

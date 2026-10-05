@@ -33,12 +33,12 @@ export const ToastProvider = ({ children }) => {
                 ? 'bg-emerald-50 text-emerald-900 border-emerald-200'
                 : toast.type === 'error'
                 ? 'bg-rose-50 text-rose-900 border-rose-200'
-                : 'bg-amber-50 text-amber-900 border-amber-200'
+                : 'bg-slate-100 text-slate-800 border-slate-200'
             }`}
           >
             {toast.type === 'success' && <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />}
             {toast.type === 'error' && <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />}
-            {toast.type === 'info' && <Info className="w-5 h-5 text-amber-600 shrink-0" />}
+            {toast.type === 'info' && <Info className="w-5 h-5 text-slate-500 shrink-0" />}
             <span className="flex-1">{toast.message}</span>
             <button
               onClick={() => removeToast(toast.id)}

@@ -55,7 +55,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
       setPagination(res.data.pagination || { page: 1, pages: 0, total: 0 });
     } catch (err) {
       console.error('[Fetch Events Error]', err);
-      setError('Failed to load Shakha events calendar.');
+      setError('Failed to load Campus events calendar.');
     } finally {
       setIsLoading(false);
     }
@@ -94,10 +94,10 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-4">
         <div>
           <h2 className="text-xl font-bold text-stone-900 font-serif">
-            {attendanceView ? 'Attendance Management' : activeTab === 'completed' ? 'Event History & Reports' : 'Shakha Events & History'}
+            {attendanceView ? 'Attendance Management' : activeTab === 'completed' ? 'Event History & Reports' : 'Campus Events & History'}
           </h2>
           <p className="text-xs text-stone-600 mt-0.5">
-            Chronological calendar of upcoming Shakha events and preserved event history.
+            Chronological calendar of upcoming Campus events and preserved event history.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
             icon={Plus}
             onClick={() => setIsAddModalOpen(true)}
           >
-            Schedule Shakha Event
+            Schedule Campus Event
           </Button>
         )}
       </div>
@@ -118,7 +118,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
           onClick={() => { setPage(1); setActiveTab('upcoming'); }}
           className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${
             activeTab === 'upcoming'
-              ? 'border-[#D84315] text-[#D84315]'
+              ? 'border-[#475569] text-slate-700'
               : 'border-transparent text-stone-500 hover:text-stone-800'
           }`}
         >
@@ -128,7 +128,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
           onClick={() => { setPage(1); setActiveTab('completed'); }}
           className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${
             activeTab === 'completed'
-              ? 'border-[#D84315] text-[#D84315]'
+              ? 'border-[#475569] text-slate-700'
               : 'border-transparent text-stone-500 hover:text-stone-800'
           }`}
         >
@@ -136,7 +136,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
         </button>
         <button
           onClick={() => { setPage(1); setActiveTab('cancelled'); }}
-          className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${activeTab === 'cancelled' ? 'border-[#D84315] text-[#D84315]' : 'border-transparent text-stone-500 hover:text-stone-800'}`}
+          className={`pb-2.5 px-3 text-sm font-semibold border-b-2 transition-colors ${activeTab === 'cancelled' ? 'border-[#475569] text-slate-700' : 'border-transparent text-stone-500 hover:text-stone-800'}`}
         >Cancelled</button>
       </div>
 
@@ -173,7 +173,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
             <div
               key={ev._id}
               className={`bg-white border border-stone-200 rounded-lg p-5 shadow-2xs hover:shadow-xs transition-shadow flex flex-col md:flex-row md:items-center justify-between gap-4 ${
-                ev.status === 'upcoming' ? 'border-l-4 border-l-[#D84315]' : ev.status === 'completed' ? 'border-l-4 border-l-emerald-600 bg-stone-50/50' : 'border-l-4 border-l-rose-500 bg-rose-50/30'
+                ev.status === 'upcoming' ? 'border-l-4 border-l-[#475569]' : ev.status === 'completed' ? 'border-l-4 border-l-emerald-600 bg-stone-50/50' : 'border-l-4 border-l-rose-500 bg-rose-50/30'
               }`}
             >
               <div className="space-y-1.5 flex-1">
@@ -198,7 +198,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
                     {ev.startTime} - {ev.endTime}
                   </span>
                   <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#D84315]" />
+                    <MapPin className="w-3.5 h-3.5 text-slate-700" />
                     {ev.venue}
                   </span>
                 </div>
@@ -266,7 +266,7 @@ export const EventsPage = ({ initialStatus = 'upcoming', attendanceView = false 
         isOpen={!!deletingEvent}
         onClose={() => setDeletingEvent(null)}
         onConfirm={handleDeleteEvent}
-        title="Delete Shakha Event"
+        title="Delete Campus Event"
         message={`Are you sure you want to delete "${deletingEvent?.name}"? All associated attendance logs will also be permanently deleted.`}
         confirmText="Delete Event"
         isDanger={true}

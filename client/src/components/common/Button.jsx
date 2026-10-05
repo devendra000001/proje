@@ -16,9 +16,9 @@ export const Button = ({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-md disabled:opacity-60 disabled:cursor-not-allowed select-none';
 
   const variants = {
-    primary: 'bg-[#D84315] hover:bg-[#c2410c] text-white focus:ring-[#D84315] shadow-sm',
-    secondary: 'bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 focus:ring-[#D84315] shadow-sm',
-    outline: 'bg-transparent hover:bg-amber-50 text-[#D84315] border border-[#D84315] focus:ring-[#D84315]',
+    primary: 'bg-slate-700 hover:bg-slate-800 text-white focus:ring-slate-500 shadow-sm',
+    secondary: 'bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 focus:ring-slate-500 shadow-sm',
+    outline: 'bg-transparent hover:bg-slate-100 text-slate-700 border border-[#475569] focus:ring-slate-500',
     danger: 'bg-rose-600 hover:bg-rose-700 text-white focus:ring-rose-600 shadow-sm',
     ghost: 'bg-transparent hover:bg-stone-100 text-stone-700 focus:ring-stone-400',
   };

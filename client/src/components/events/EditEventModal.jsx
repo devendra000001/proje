@@ -82,7 +82,7 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Edit Shakha Event Details" maxWidth="max-w-xl">
+    <Modal isOpen={isOpen} onClose={onClose} title="Edit Campus Event Details" maxWidth="max-w-xl">
       <form onSubmit={handleSubmit} className="space-y-4">
         {errorMsg && (
           <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3 rounded text-xs font-medium">
@@ -157,7 +157,7 @@ export const EditEventModal = ({ isOpen, onClose, event, onEventUpdated }) => {
             name="description"
             rows="3"
             maxLength={5000}
-            className="w-full text-sm bg-white border border-stone-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#D84315]"
+            className="w-full text-sm bg-white border border-stone-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-slate-500"
             value={formData.description}
             onChange={handleChange}
           />

@@ -34,7 +34,7 @@ export const Input = ({
           required={required}
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={error ? `${inputId}-error` : helperText ? `${inputId}-help` : undefined}
-          className={`w-full text-sm bg-white border rounded-md px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#D84315] focus:border-transparent ${
+          className={`w-full text-sm bg-white border rounded-md px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent ${
             Icon ? 'pl-9' : ''
           } ${error ? 'border-rose-400 focus:ring-rose-500' : 'border-stone-300'}`}
           {...props}

@@ -6,7 +6,7 @@ import Button from '../components/common/Button';
 export const NotFoundPage = () => {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center p-6 bg-white border border-stone-200 rounded-lg shadow-sm">
-      <div className="w-14 h-14 rounded-full bg-orange-100 text-[#D84315] flex items-center justify-center mb-4">
+      <div className="w-14 h-14 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center mb-4">
         <Compass className="w-8 h-8" />
       </div>
       <h2 className="text-xl font-bold text-stone-900 mb-2 font-serif">

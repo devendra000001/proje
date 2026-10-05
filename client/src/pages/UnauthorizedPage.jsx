@@ -13,7 +13,7 @@ export const UnauthorizedPage = () => {
         403 — Access Restricted
       </h2>
       <p className="text-sm text-stone-600 max-w-md mb-6">
-        You do not have administrative permissions to view or modify this section of the RSS VNIT Shakha Portal.
+        You do not have permission to view or modify this section of the campus portal.
       </p>
       <Link to="/dashboard">
         <Button variant="primary" icon={ArrowLeft}>

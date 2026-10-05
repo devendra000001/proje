@@ -5,7 +5,7 @@ export const Loader = ({ fullScreen = false, text = 'Loading...' }) => {
   if (fullScreen) {
     return (
       <div className="min-h-screen bg-stone-50 flex flex-col items-center justify-center p-4 gap-3 text-stone-600">
-        <Loader2 className="w-8 h-8 text-[#D84315] animate-spin" />
+        <Loader2 className="w-8 h-8 text-slate-700 animate-spin" />
         <span className="text-sm font-medium">{text}</span>
       </div>
     );
@@ -13,7 +13,7 @@ export const Loader = ({ fullScreen = false, text = 'Loading...' }) => {
 
   return (
     <div className="flex items-center justify-center p-8 gap-2.5 text-stone-600">
-      <Loader2 className="w-5 h-5 text-[#D84315] animate-spin" />
+      <Loader2 className="w-5 h-5 text-slate-700 animate-spin" />
       <span className="text-sm font-medium">{text}</span>
     </div>
   );

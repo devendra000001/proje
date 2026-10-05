@@ -71,23 +71,23 @@ export const DashboardPage = () => {
       <div className="bg-white border border-stone-200 rounded-lg p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[#D84315] font-semibold text-xs tracking-wider uppercase">
-              Shakha Bulletin
+            <span className="text-slate-700 font-semibold text-xs tracking-wider uppercase">
+              Campus Bulletin
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D84315]" />
-            <span className="text-stone-500 text-xs">VNIT Nagpur Campus</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
+            <span className="text-stone-500 text-xs">Campus overview</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900 font-serif">
-            Namaste, {user?.memberProfile?.fullName || 'Swayamsevak'} Ji
+            Welcome, {user?.memberProfile?.fullName || 'Member'}
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 mt-1">
-            Welcome to the official internal portal for managing RSS VNIT Shakha members, events, and attendance.
+            Manage campus members, events, and attendance in one place.
           </p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <Badge variant="kesari" size="md">
-            {user?.memberProfile?.branch || 'VNIT'} • {user?.memberProfile?.academicYear || 'Member'}
+          <Badge variant="neutral" size="md">
+            {user?.memberProfile?.branch || 'Campus'} • {user?.memberProfile?.academicYear || 'Member'}
           </Badge>
         </div>
       </div>
@@ -97,7 +97,7 @@ export const DashboardPage = () => {
         <div className="bg-white border border-stone-200 rounded-lg p-5 flex items-center justify-between">
           <div>
             <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
-              Total Swayamsevaks
+              Total Members
             </span>
             <div className="text-2xl font-bold text-stone-900 mt-1">
               {stats?.totalMembers || 0}
@@ -106,7 +106,7 @@ export const DashboardPage = () => {
               Registered in Directory
             </span>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-orange-50 text-[#D84315] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
             <Users className="w-5 h-5" />
           </div>
         </div>
@@ -120,7 +120,7 @@ export const DashboardPage = () => {
               {stats?.activeMembers || 0}
             </div>
             <span className="text-[11px] text-emerald-700 font-medium mt-0.5 block">
-              Active Shakha Members
+              Active Campus Members
             </span>
           </div>
           <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
@@ -136,11 +136,11 @@ export const DashboardPage = () => {
             <div className="text-2xl font-bold text-stone-900 mt-1">
               {stats?.upcomingEvents ?? 0}
             </div>
-            <span className="text-[11px] text-amber-700 font-medium mt-0.5 block">
-              Scheduled Shakha Events
+            <span className="text-[11px] text-slate-700 font-medium mt-0.5 block">
+              Scheduled Campus Events
             </span>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
             <Calendar className="w-5 h-5" />
           </div>
         </div>
@@ -194,10 +194,10 @@ export const DashboardPage = () => {
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center justify-between border-b border-stone-200 pb-3">
             <h3 className="text-base font-bold text-stone-900 font-serif flex items-center gap-2">
-              <CalendarDays className="w-5 h-5 text-[#D84315]" />
-              Upcoming Shakha Events
+              <CalendarDays className="w-5 h-5 text-slate-700" />
+              Upcoming Campus Events
             </h3>
-            <Link to="/events" className="text-xs font-semibold text-[#D84315] hover:underline flex items-center gap-1">
+            <Link to="/events" className="text-xs font-semibold text-slate-700 hover:underline flex items-center gap-1">
               View All Events <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -205,7 +205,7 @@ export const DashboardPage = () => {
           {upcomingList.length === 0 ? (
             <EmptyState
               title="No upcoming events scheduled"
-              description="There are currently no upcoming Shakha events scheduled."
+              description="There are currently no upcoming Campus events scheduled."
               icon={Calendar}
             />
           ) : (
@@ -213,7 +213,7 @@ export const DashboardPage = () => {
               {upcomingList.map((ev) => (
                 <div
                   key={ev._id}
-                  className="bg-white border border-stone-200 border-l-4 border-l-[#D84315] rounded-r-lg p-4 shadow-2xs hover:shadow-xs transition-shadow"
+                  className="bg-white border border-stone-200 border-l-4 border-l-[#475569] rounded-r-lg p-4 shadow-2xs hover:shadow-xs transition-shadow"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <div className="flex items-center gap-2">
@@ -237,12 +237,12 @@ export const DashboardPage = () => {
 
                   <div className="flex items-center justify-between text-xs pt-2 border-t border-stone-100">
                     <span className="flex items-center gap-1 text-stone-600">
-                      <MapPin className="w-3.5 h-3.5 text-[#D84315]" />
+                      <MapPin className="w-3.5 h-3.5 text-slate-700" />
                       {ev.venue}
                     </span>
                     <Link
                       to={`/events/${ev._id}`}
-                      className="font-semibold text-[#D84315] hover:underline flex items-center gap-1"
+                      className="font-semibold text-slate-700 hover:underline flex items-center gap-1"
                     >
                       Details & Attendance <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -257,7 +257,7 @@ export const DashboardPage = () => {
         <div className="space-y-4">
           <div className="border-b border-stone-200 pb-3">
             <h3 className="text-base font-bold text-stone-900 font-serif flex items-center gap-2">
-              <FileText className="w-5 h-5 text-[#D84315]" />
+              <FileText className="w-5 h-5 text-slate-700" />
               Recent Event Remarks
             </h3>
           </div>
@@ -275,7 +275,7 @@ export const DashboardPage = () => {
               </p>
               <Link
                 to={`/events/${latestRemark.event?._id}`}
-                className="text-xs font-semibold text-[#D84315] hover:underline block text-right"
+                className="text-xs font-semibold text-slate-700 hover:underline block text-right"
               >
                 View Full Event Report & Remarks →
               </Link>

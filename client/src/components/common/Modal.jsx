@@ -45,7 +45,7 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = 'max-w-lg' 
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="text-stone-400 hover:text-stone-600 rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-[#D84315]"
+            className="text-stone-400 hover:text-stone-600 rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-slate-500"
           >
             <X className="w-5 h-5" />
           </button>

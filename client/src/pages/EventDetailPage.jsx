@@ -64,7 +64,7 @@ export const EventDetailPage = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       <Link
         to="/events"
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D84315] hover:underline"
+        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:underline"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Events Calendar
       </Link>
@@ -110,7 +110,7 @@ export const EventDetailPage = () => {
             <span>Time: {event?.startTime} - {event?.endTime}</span>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-[#D84315] shrink-0" />
+            <MapPin className="w-4 h-4 text-slate-700 shrink-0" />
             <span>Venue: {event?.venue}</span>
           </div>
           <div className="flex items-center gap-2">
@@ -134,7 +134,7 @@ export const EventDetailPage = () => {
         <div className="pt-4 border-t border-stone-200 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-stone-900 font-serif flex items-center gap-2">
-              <FileText className="w-5 h-5 text-[#D84315]" />
+              <FileText className="w-5 h-5 text-slate-700" />
               Preserved Post-Event Report & Remarks
             </h3>
           </div>
@@ -171,12 +171,12 @@ export const EventDetailPage = () => {
                   </p>
                 </div>
 
-                <div className="bg-amber-50/60 border border-amber-200 rounded-lg p-3 text-xs">
-                  <div className="font-bold text-amber-900 flex items-center gap-1.5 mb-1">
-                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 text-xs">
+                  <div className="font-bold text-slate-800 flex items-center gap-1.5 mb-1">
+                    <AlertCircle className="w-4 h-4 text-slate-500 shrink-0" />
                     What Could Be Improved
                   </div>
-                  <p className="text-amber-800 leading-relaxed">
+                  <p className="text-slate-700 leading-relaxed">
                     {remark.whatCouldBeImproved || 'No specific notes'}
                   </p>
                 </div>
